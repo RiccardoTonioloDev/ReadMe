@@ -1,0 +1,8 @@
+{
+    "name": "nomeutente/nomedelprogetto",
+    "description": "Una breve descrizione del tuo progetto",
+    "type": "project",
+    "require": {
+        "ext-mysqli": "*"
+    }
+}
