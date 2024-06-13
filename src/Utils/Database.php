@@ -25,7 +25,7 @@ class Database
         $this->USERNAME = getenv('MYSQLUSER');
         $this->PASSWORD = getenv('MYSQL_ROOT_PASSWORD');
         $this->DATABASE = getenv('MYSQLDATABASE');
-        $this->conn = new mysqli(self::HOST, self::USERNAME, self::PASSWORD, self::DATABASE);
+        $this->conn = new mysqli($this->HOST, $this->USERNAME, $this->PASSWORD, $this->DATABASE);
     }
 
     public function get_connection(): mysqli {
