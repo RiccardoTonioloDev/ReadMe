@@ -10,10 +10,10 @@ use Pangine\utils\Exception500;
 class Database
 {
 
-    private const HOST = 'mysql_server';
-    private const USERNAME = 'root';
-    private const PASSWORD = 'admin';
-    private const DATABASE = 'mrango';
+    private const HOST = "";
+    private const USERNAME = "";
+    private const PASSWORD = "";
+    private const DATABASE = "";
 
     private bool $db_was_used = false;
 
@@ -21,6 +21,10 @@ class Database
 
     public function __construct()
     {
+        $this->HOST = getenv('MYSQLHOST');
+        $this->USERNAME = getenv('MYSQLUSER');
+        $this->PASSWORD = getenv('MYSQL_ROOT_PASSWORD');
+        $this->DATABASE = getenv('MYSQLDATABASE');
         $this->conn = new mysqli(self::HOST, self::USERNAME, self::PASSWORD, self::DATABASE);
     }
 
