@@ -10,10 +10,10 @@ use Pangine\utils\Exception500;
 class Database
 {
 
-    private const HOST = "";
-    private const USERNAME = "";
-    private const PASSWORD = "";
-    private const DATABASE = "";
+    private string $HOST = "";
+    private string $USERNAME = "";
+    private string $PASSWORD = "";
+    private string $DATABASE = "";
 
     private bool $db_was_used = false;
 
