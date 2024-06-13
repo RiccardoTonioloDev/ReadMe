@@ -47,7 +47,7 @@ class Database
     public function execute_query(string $query, ...$params): array|bool
     {
         try {
-            $stmt = $this->conn->prepare("USE ".getenv("MYSQLDATABASE").";".$query);
+            $stmt = $this->conn->prepare("USE ".getenv("MYSQL_DATABASE").";".$query);
 
             if ($stmt === false) {
                 throw new Exception("Errore nella preparazione della query");
