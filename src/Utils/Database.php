@@ -16,7 +16,7 @@ class Database
 
     public function __construct()
     {
-        $this->conn = new mysqli($_ENV['MYSQLHOST'], $_ENV['MYSQLUSER'], $_ENV['MYSQL_ROOT_PASSWORD'], $_ENV['MYSQLDATABASE']);
+        $this->conn = new mysqli($_ENV['MYSQLHOST'], $_ENV['MYSQLUSER'], $_ENV['MYSQL_ROOT_PASSWORD'], $_ENV['MYSQL_DATABASE']);
     }
 
     public function get_connection(): mysqli {
@@ -47,7 +47,7 @@ class Database
     public function execute_query(string $query, ...$params): array|bool
     {
         try {
-            $stmt = $this->conn->prepare("USE ".$_ENV["MYSQL_DATABASE"].";".$query);
+            $stmt = $this->conn->prepare($query);
 
             if ($stmt === false) {
                 throw new Exception("Errore nella preparazione della query");
