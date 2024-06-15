@@ -67,26 +67,12 @@ function validateString(str, input, min=Number.MIN_SAFE_INTEGER, max=Number.MAX_
     return true;
 }
 
-function validateStringOrNot(str, input, min=Number.MIN_SAFE_INTEGER, trim=true) {
-    str = trim ? str.trim() : str;
-
-    if(str.length != 0 && str.length < min) {
-        input.insertAdjacentElement(
-                'afterend',
-                getErrorMessage(`Si prega di fornire un valore con un numero di caratteri maggiori di ${min}.`));
-
-        return false;
-    }
-
-    return true;
-}
-
 function validateNumber(num, input, min=Number.MIN_SAFE_INTEGER, max=Number.MAX_SAFE_INTEGER) {
     if(num < min) {
 
         input.insertAdjacentElement(
                 'afterend',
-                getErrorMessage(`Si prega di fornire un valore numerico maggiore di ${min}.`));
+                getErrorMessage(`Si prega di fornire un valore numerico maggiore di ${min-1}.`));
 
         return false;
     }
@@ -94,7 +80,7 @@ function validateNumber(num, input, min=Number.MIN_SAFE_INTEGER, max=Number.MAX_
     if(num > max) {
         input.insertAdjacentElement(
             'afterend',
-            getErrorMessage(`Si prega di fornire un valore numerico minore di ${max}.`));
+            getErrorMessage(`Si prega di fornire un valore numerico minore di ${max-1}.`));
         return false;
     }
 
@@ -141,19 +127,21 @@ function validateBookInfo(edit) {
 function validateTitle() {
     let titleInput = document.getElementById('input-title');
     clearErrorMessage(titleInput);
-    return validateString(titleInput.value, titleInput, 4, 255);
+    return validateString(titleInput.value, titleInput, 4, 30);
 }
 
 function validateAuthor() {
-    let authorInput = document.getElementById('input-author');
-    clearErrorMessage(authorInput);
-    return validateString(authorInput.options[authorInput.selectedIndex].text, authorInput, 4, 255);
-}
 
-function validateAuthorNew() {
-    let authorInput = document.getElementById('input-author-new');
-    clearErrorMessage(authorInput);
-    return validateStringOrNot(authorInput.value, authorInput, 4);
+    let authorInputDiv = document.getElementById('author-input')
+    let authorInput = document.getElementById('input-author');
+    let newAuthorInput = document.getElementById('input-author-new');
+
+    clearErrorMessage(authorInputDiv);
+
+    if(newAuthorInput.value.trim().length !== 0) {
+        return validateString(newAuthorInput.value, authorInputDiv, 4, 30);
+    }
+    return validateString(authorInput.options[authorInput.selectedIndex].text, authorInputDiv, 4, 30);
 }
 
 function validateDesc() {
@@ -165,7 +153,7 @@ function validateDesc() {
 function validateCopiesNumber() {
     let copiesInput = document.getElementById('input-no-copies');
     clearErrorMessage(copiesInput);
-    return validateNumber(copiesInput.value, copiesInput, 1);
+    return validateNumber(copiesInput.value, copiesInput, 1, 1000000);
 }
 
 function validateCover(edit) {

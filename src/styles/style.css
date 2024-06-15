@@ -175,11 +175,6 @@ h2 {
         width: 100%;
     }
 
-    .book-page .section-info {
-        width: fit-content;
-        padding: 1rem;
-    }
-
     .book-page .section-image {
         width: 20rem;
         height: auto;
@@ -219,27 +214,9 @@ h2 {
 
 
     /* --- CATALOGO --- */
+
     #books-container {
-        display: grid;
-        width: 100%;
         grid-template-columns: 1fr;
-        list-style: none;
-    }
-
-    #books-container div {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-flow: column;
-    }
-
-    #books-container dt {
-        font-size: calc(var(--heading2Size) - 0.3rem);
-        text-align: center;
-    }
-
-    #books-container dd {
-        font-size: calc(var(--textSize) - 0.1rem);
     }
 
     /* --- PRESTITI ---- */
@@ -274,11 +251,6 @@ h2 {
         padding: 1rem;
     }
 
-    .book-page .section-info {
-        width: fit-content;
-        padding: 10px;
-    }
-
     /* -- INDEX PAGE -- */
     ul#index-numbers {
         list-style: none;
@@ -305,28 +277,9 @@ h2 {
 
     /* --- CATALOGO --- */
     #books-container {
-        display: grid;
-        width: 100%;
         grid-template-columns: 1fr 1fr;
-        list-style: none;
     }
-
-    #books-container div {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-flow: column;
-    }
-
-    #books-container dt {
-        font-size: calc(var(--heading2Size) - 0.5rem);
-        text-align: center;
-    }
-
-    #books-container dd {
-        font-size: calc(var(--textSize) - 0.3rem);
-    }
-
+    
     /* --- PRESTITI ---- */
     #loans-list {
         grid-template-columns: 1fr 1fr;
@@ -361,10 +314,6 @@ h2 {
         padding: 1rem;
     }
 
-    .book-page .section-info {
-        padding: 10px;
-    }
-
     /* -- INDEX PAGE -- */
     ul#index-numbers {
         list-style: none;
@@ -391,31 +340,12 @@ h2 {
 
     /* --- CATALOGO --- */
     #books-container {
-        display: grid;
-        width: 100%;
-        grid-template-columns: 1fr 1fr 1fr;
-        list-style: none;
-    }
-
-    #books-container div {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-flow: column;
-    }
-
-    #books-container dt {
-        font-size: calc(var(--heading2Size) - 0.5rem);
-        text-align: center;
-    }
-
-    #books-container dd {
-        font-size: calc(var(--textSize) - 0.3rem);
+        grid-template-columns: 1fr 1fr;
     }
 
     /* --- PRESTITI ---- */
     #loans-list {
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
     }
 }
 
@@ -446,10 +376,6 @@ h2 {
         padding: 1rem;
     }
 
-    .book-page .section-info {
-        padding: 1rem;
-    }
-
     /* -- INDEX PAGE -- */
     ul#index-numbers {
         list-style: none;
@@ -476,26 +402,7 @@ h2 {
 
     /* --- CATALOGO --- */
     #books-container {
-        display: grid;
-        width: 100%;
         grid-template-columns: 1fr 1fr 1fr;
-        list-style: none;
-    }
-
-    #books-container div {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-flow: column;
-    }
-
-    #books-container dt {
-        font-size: calc(var(--heading2Size) - 0.5rem);
-        text-align: center;
-    }
-
-    #books-container dd {
-        font-size: calc(var(--textSize) - 0.3rem);
     }
 
     /* --- PRESTITI ---- */
@@ -805,12 +712,21 @@ input:hover{
 }
 
 /* --------- PAGES NAVIGATION --------- */
-.pages-nav * {
-    display: inline;
+.pages-nav {
+    z-index: 0;
+    border-radius: 1rem;
+    -moz-box-shadow: 0 0 0.16rem 0 var(--primaryColor);
+    -o-box-shadow: 0 0 0.16rem 0 var(--primaryColor);
+    -webkit-box-shadow: 0 0 0.16rem 0 var(--primaryColor);
+    box-shadow: 0 0 0.16rem 0 var(--primaryColor);
+    margin: 1rem;
+    padding: 0.5rem;
 }
 
-.pages-nav a {
-    margin: 1em;
+.pages-nav * {
+    display: inline;
+    padding: 0.2rem ;
+    margin: 0.1rem;
 }
 
 /* --------- ACCOUNT PAGE --------- */
@@ -839,36 +755,31 @@ ul#operations li:last-child {
 /* --------- BOOK --------- */
 
 .book-page h1 {
-    font-size: 2.5em;
+    font-size: 2.5rem;
 }
 
 .book-page h2 {
-    font-size: 2em;
-    margin-bottom: 10px;
-    color: var(--primaryColor);
+    font-size: 2rem;
+    margin-bottom: 0.6rem;
+    color: var(--accentColor);
 }
 
 .book-page p {
-    font-size: 1.2em;
+    font-size: 1.2rem;
     color: var(--textColor);
 }
 
 .book-page input[type="submit"] {
+    display: block;
     background-color: var(--primaryColor);
     color: var(--backgroundColor);
     border: none;
-    padding: 10px 20px;
+    padding: 0.6rem 1.25rem;
     text-align: center;
-    text-decoration: none;
-    font-size: 16px;
-    margin: 4px 2px;
+    margin: 0.25rem 0.12rem;
     transition-duration: 0.4s;
     cursor: pointer;
     border-radius: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: auto;
 }
 
 .book-page input[type="submit"]:hover {
@@ -886,45 +797,66 @@ ul#operations li:last-child {
     color: var(--primaryColor);
 }
 
+.section-info {
+    box-sizing: border-box;
+    width: 100%;
+    overflow-wrap: break-word;
+    padding: 1rem;
+}
+
+.book-page #input-cover {
+    box-sizing: border-box;
+    width: 80%;
+}
+
 .book-page label {
-    font-size: 1.2em;
+    font-size: 1.2rem;
     color: var(--textColor);
 }
 
-.book-page .section-delete {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.book-page .section-delete{
+    text-align: center;
 }
 
-#book-page-delete {
-    justify-content: center;
-    width: 100% !important;
+.book-page .section-delete form input {
+    margin: 1rem auto;
+}
+
+#new-book-form {
+    padding: 1rem;
+}
+
+.book-page .errorMessage {
+    width: 90%;
+}
+
+#old-author {
+    margin-right: 1rem;
 }
 
 #author-input {
     display: flex;
     justify-content: start;
     flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .book-page select, .book-page textarea {
-    width: 90%;
-    padding: 10px;
+    padding: 0.6rem;
     border: 1px solid var(--primaryColor);
     border-radius: 5px;
-    margin-bottom: 20px;
-    font-size: 1em;
+    margin-bottom: 1.25rem;
+    font-size: 1rem;
 }
 
 .book-page textarea#input-description {
+    width: 90%;
     resize: none;
-    height: 400px;
+    height: 25rem;
 }
 
 .book-page p {
-    width: 90%
+    width: 100%
 }
 
 /* ------------ CATALOGO PAGE ------------ */
@@ -941,24 +873,42 @@ form[role="search"] {
     padding: 0.5rem;
 }
 
+#books-container {
+    display: grid;
+    width: 100%;
+    list-style: none;
+}
+
 #books-container img {
     width: 10rem;
     height: 14rem;
 }
 
-#books-container dt {
+.book-card dt, .book-card dd {
+    display: inline;
+}
+
+.book-card div {
     margin-bottom: 0.5rem;
 }
 
-#books-container div {
+.book-card {
+    text-align: center;
     box-sizing: border-box;
     padding: 1rem;
-    margin: 1rem;
+    margin: 1rem auto;
+    width: 80%;
+    overflow-wrap: break-word;
     border-radius: 1rem;
     -moz-box-shadow: 0 0 0.16rem 0 var(--primaryColor);
     -o-box-shadow: 0 0 0.16rem 0 var(--primaryColor);
     -webkit-box-shadow: 0 0 0.16rem 0 var(--primaryColor);
     box-shadow: 0 0 0.16rem 0 var(--primaryColor);
+}
+
+.book-card h2 {
+    margin: 1rem auto;
+    width: 70%;
 }
 
 /* ------------ INDEX PAGE ------------ */
@@ -1031,7 +981,6 @@ main div.index-card:last-child p {
     margin: 1% 10%
 }
 
-
 #loans-list {
     display: grid;
     row-gap: 1rem;
@@ -1048,10 +997,14 @@ main div.index-card:last-child p {
 }
 
 .loan-card {
+    overflow-wrap: break-word;
     width: 70%;
-    margin: auto;
-    border: 1px solid var(--primaryColor);
-    border-radius: 5px;
+    margin: 1rem auto;
+    border-radius: 1rem;
+    -moz-box-shadow: 0 0 0.16rem 0 var(--primaryColor);
+    -o-box-shadow: 0 0 0.16rem 0 var(--primaryColor);
+    -webkit-box-shadow: 0 0 0.16rem 0 var(--primaryColor);
+    box-shadow: 0 0 0.16rem 0 var(--primaryColor);
     text-align: center;
     padding: 1rem;
 }
